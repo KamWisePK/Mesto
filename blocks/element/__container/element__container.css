@@ -1,0 +1,9 @@
+.element__container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  width:calc(100% - 40px);
+  min-height: 79px;
+}

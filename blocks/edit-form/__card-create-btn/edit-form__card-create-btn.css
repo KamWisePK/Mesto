@@ -1,0 +1,23 @@
+.edit-form__card-create-btn {
+  width: 358px;
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+  text-align: center;
+  margin: 47px 36px 37px;
+  padding: 15px 0;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 656px) {
+  .edit-form__card-create-btn {
+    max-width: 238px;
+    margin: 45px 22px 25px;
+    font-size: 14px;
+    line-height: 16.94px;
+  }
+}

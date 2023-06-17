@@ -1,0 +1,17 @@
+.edit-form__input{
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding: 0;
+    padding-bottom: 10px;
+    border: none;
+    outline-style: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .edit-form__input:placeholder-shown {
+      text-align: center;
+    }

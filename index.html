@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Проектная работа Место">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <meta name="author" content="Sergey Mudretskiy">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Место: 4 проектная Yandex:Practicum</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img class="header__logo" src="./images/logo.svg" alt="Логотип место">
+      </header>
+      <main class="content">
+        <section class="profile">
+          <img
+            src="./images/Kusto-profile.jpg"
+            alt="Фото профиля"
+            class="profile__avatar">
+          <div class="profile__info">
+            <div class="profile__container">
+              <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+              <button class="profile__edit-btn opacity" 
+              type="button" 
+              aria-label="Редактирвоать профиль" 
+              title="Редактировать профиль">
+            </button>
+            </div>
+            <p class="profile__info-job">Исследователь океана</p>
+          </div>
+          <button class="profile__add-btn opacity" 
+          type="button" 
+          aria-label="Добавить карточку" 
+          title="Добавить карточку">
+        </button>
+        </section>
+        <section class="elements">
+          
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright" lang="en">© 2020 Mesto Russia</p>
+      </footer>
+      <section class="popup popup_type_profile">
+        <div class="popup__container">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <button class="popup__close-btn opacity" 
+          type="button" aria-label="Закрыть без сохранения" 
+          title="Закрыть">
+          </button>
+          <form class="edit-form" name="userEditForm">
+          <input
+            name="userName"
+            class="edit-form__input edit-form__input_type_name" 
+            minlength="4"
+            autofocus 
+            placeholder="Укажите имя"
+            required
+            >
+          <input
+            name="userJob"
+            class="edit-form__input edit-form__input_type_job" 
+            minlength="4"
+            placeholder="Укажите профессию"
+            required
+            >
+          <button class="edit-form__save-btn" type="submit">Сохранить</button>         
+        </form>
+        </div>
+      </section>
+      <section class="popup popup_type_new-card">
+        <div class="popup__container">
+          <h2 class="popup__title">Новое место</h2>
+          <button class="popup__close-btn opacity" 
+          type="button" aria-label="Закрыть без сохранения" 
+          title="Закрыть">
+          </button>
+          <form class="edit-form" name="editForm">
+          <input
+            name="cardName"
+            class="edit-form__input edit-form__input_type_card-name" 
+            minlength="4"
+            autofocus 
+            placeholder="Укажите название"
+            required
+            >
+          <input
+            name="cardUrl"
+            class="edit-form__input edit-form__input_type_card-url" 
+            minlength="4"
+            placeholder="Ссылка на картинку"
+            required
+            >
+          <button class="edit-form__card-create-btn" type="submit">Создать</button>         
+        </form>
+        </div>
+      </section>
+      <section class="popup popup_type_img">
+        <figure class="popup__figure">
+          <img src="" class="popup__img">
+          <figcaption class="popup__figcaption"></figcaption>
+          <button class="popup__close-btn opacity" 
+          type="button" aria-label="Закрыть без сохранения" 
+          title="Закрыть">
+          </button>
+        </figure>
+      </section>
+    </div>
+    <template class="card-template" id="card-template">
+      <article class="element">
+        <button class="element__del"
+        type="button"
+        aria-label="Удалить"
+        title="Удалить карточку">
+        </button>
+        <img src="" class="element__image" aria-label="Увеличить изображение" title="Увеличить">
+        <div class="element__container">
+          <h2 class="element__title"></h2>
+          <button class="element__like-button"
+          type="button" 
+          aria-label="Кнопка лайка"
+          title = "Нравится">
+        </button>
+        </div>
+      </article>
+    </template>
+    
+    <script async src="./scripts/script.js"></script>
+  </body>
+</html>
