@@ -12,7 +12,7 @@
   margin: 0;
   background-repeat: no-repeat;
   cursor: pointer;
-  }
+}
 
 @media screen and (max-width: 656px) {
   .popup__close-btn {
