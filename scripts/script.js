@@ -1,6 +1,7 @@
 const popupProfile = document.querySelector(".popup_type_profile");
+const formEditUserInformation = popupProfile.querySelector('.edit-form');
 const buttonEditProfile = document.querySelector(".profile__edit-btn");
-const buttonClosePopup = document.querySelectorAll(".popup__close-btn");
+const buttonClosePopupList = document.querySelectorAll(".popup__close-btn");
 const inputEditFormUserName = document.querySelector(".edit-form__input_type_name");
 const inputEditFormUserJob = document.querySelector(".edit-form__input_type_job");
 const headerProfileUserName = document.querySelector(".profile__info-name");
@@ -77,7 +78,7 @@ function renderCard(data, container, position = 'append') {
   }
   }
 
-function createNewCard() {
+function openNewCard() {
   openPopup(popupNewCard);
   }
 
@@ -90,8 +91,7 @@ function handleSubmitAdd(e) {
         link: cardUrl
     }
     renderCard(newCard, sectionElements, 'prepend');
-    clearFormInput(inputEditFormCardName);
-    clearFormInput(inputEditFormCardUrl);
+    document.getElementById('editForm').reset();
     closePopup(popupNewCard);
     };
 
@@ -99,14 +99,14 @@ initialCards.forEach(function(item){
   renderCard(item, sectionElements, 'append' );
   })
 
-buttonClosePopup.forEach((item) => {
+buttonClosePopupList.forEach((item) => {
   item.addEventListener('click', function() {
   closePopup(item.closest('.popup'))});
   });
 
-popupProfile.addEventListener("submit", saveUserInformation);
+formEditUserInformation.addEventListener("submit", saveUserInformation);
 buttonEditProfile.addEventListener("click", editUserInformation);
-buttonCreateCard.addEventListener('click', createNewCard);
+buttonCreateCard.addEventListener('click', openNewCard);
 formAddNewCard.addEventListener('submit', handleSubmitAdd)
 
 
