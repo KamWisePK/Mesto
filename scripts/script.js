@@ -17,12 +17,30 @@ const popupFullImage = document.querySelector('.popup_type_img');
 const photoPopupFullImage = document.querySelector('.popup__img');
 const figCaptionPopupFullImage = document.querySelector('.popup__figcaption');
 
+function closePopupEsc(evt) {
+  if (evt.key === 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+}
+
+function closePopupOverlay(evt) {
+  const popupIsOpen = document.querySelector('.popup_opened');
+      if(evt.target === popupIsOpen) {
+          closePopup(popupIsOpen);
+      }
+  }
+
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-}
+  document.addEventListener('mousedown', closePopupOverlay);
+  document.addEventListener('keydown', closePopupEsc);
+  }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener('mousedown', closePopupOverlay);
+  document.removeEventListener('keydown', closePopupEsc);
 }
 
 function clearFormInput(name) {
@@ -107,8 +125,7 @@ buttonClosePopupList.forEach((item) => {
 formEditUserInformation.addEventListener("submit", saveUserInformation);
 buttonEditProfile.addEventListener("click", editUserInformation);
 buttonCreateCard.addEventListener('click', openNewCard);
-formAddNewCard.addEventListener('submit', handleSubmitAdd)
-
+formAddNewCard.addEventListener('submit', handleSubmitAdd);
 
 
 

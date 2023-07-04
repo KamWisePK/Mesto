@@ -1,7 +1,7 @@
 const initialCards = [
     {
       name: 'Какое-',
-      link: 'https://otkritkis.com/wp-content/uploads/2022/07/guyrl.gif'
+      link: 'https://bipbap.ru/wp-content/uploads/2021/06/Aosp8.jpg'
     },
     {
       name: 'нибудь',

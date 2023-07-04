@@ -1,4 +1,4 @@
-.edit-form__save-btn {
+.edit-form__button {
   width: 358px;
   background-color: #000000;
   color: #ffffff;
@@ -14,7 +14,7 @@
 }
 
 @media screen and (max-width: 656px) {
-  .edit-form__save-btn {
+  .edit-form__button {
     max-width: 238px;
     margin: 45px 22px 25px;
     font-size: 14px;
