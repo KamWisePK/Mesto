@@ -36,5 +36,5 @@
 
 
 ## Проект доступен для просмотра на GitHubPages по следующей ссылке: 
-### [Ссылка на проект](https://kamwisepk.github.io/Mesto/)
+### [Ссылка на проект](https://kamwisepk.github.io/Mesto-Yandex/)
 
