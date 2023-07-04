@@ -1,9 +1,4 @@
 .edit-form__input_type_job {
-  margin: 29px 36px 0;
+ 
 }
 
-@media screen and (max-width: 656px) {
-  .edit-form__input_type_job {
-    margin: 30px 22px 0;
-  }
-}

@@ -55,7 +55,7 @@
             aria-label="Закрыть без сохранения"
             title="Закрыть"
           ></button>
-          <form class="edit-form" name="userEditForm">
+          <form class="edit-form" name="userEditForm" novalidate>
             <input
               name="userName"
               class="edit-form__input edit-form__input_type_name"
@@ -75,7 +75,12 @@
               required
             />
             <span id="userJob-error" class="edit-form__error"></span>
-            <button class="edit-form__button edit-form__button_type_profile-save opacity" type="submit">Сохранить</button>
+            <button
+              class="edit-form__button edit-form__button_type_profile-save opacity"
+              type="submit"
+            >
+              Сохранить
+            </button>
           </form>
         </div>
       </section>
@@ -88,27 +93,34 @@
             aria-label="Закрыть без сохранения"
             title="Закрыть"
           ></button>
-          <form class="edit-form" name="editForm" id="editForm">
-            <input
-              name="cardName"
-              class="edit-form__input edit-form__input_type_card-name"
-              minlength="2"
-              maxlength="30"
-              autofocus
-              placeholder="Укажите название"
-              required
-            />
-            <span id="cardName-error" class="edit-form__error"></span>
-            <input
-              type="url"
-              name="cardUrl"
-              class="edit-form__input edit-form__input_type_card-url"
-              minlength="4"
-              placeholder="Ссылка на картинку"
-              required
-            />
-            <span id="cardUrl-error" class="edit-form__error"></span>
-            <button class="edit-form__button edit-form__button_type_card-create opacity" type="submit">
+          <form class="edit-form" name="editForm" id="editForm" novalidate>
+            <label class="edit-form__label">
+              <input
+                name="cardName"
+                class="edit-form__input edit-form__input_type_card-name"
+                minlength="2"
+                maxlength="30"
+                autofocus
+                placeholder="Укажите название"
+                required
+              />
+              <span id="cardName-error" class="edit-form__error"></span>
+            </label>
+            <label class="edit-form__label">
+              <input
+                type="url"
+                name="cardUrl"
+                class="edit-form__input edit-form__input_type_card-url"
+                minlength="4"
+                placeholder="Ссылка на картинку"
+                required
+              />
+              <span id="cardUrl-error" class="edit-form__error"></span>
+            </label>
+            <button
+              class="edit-form__button edit-form__button_type_card-create opacity"
+              type="submit"
+            >
               Создать
             </button>
           </form>

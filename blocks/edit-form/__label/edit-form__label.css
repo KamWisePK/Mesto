@@ -1,0 +1,5 @@
+.edit-form__label {
+  flex-direction: column;
+  max-width: 358px;
+  display: flex;
+}

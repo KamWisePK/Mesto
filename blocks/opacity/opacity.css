@@ -3,6 +3,6 @@
   transition: ease-in-out 0.4s;
 }
 
-.opacity:hover {
+.opacity:not([disabled]):hover {
   opacity: 60%;
 }

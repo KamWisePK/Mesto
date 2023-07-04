@@ -1,9 +1,4 @@
 .edit-form__input_type_card-name {
-  margin: 0 36px;
+  
 }
 
-@media screen and (max-width: 656px) {
-  .edit-form__input_type_card-name {
-    margin: 0 22px;
-  }
-}

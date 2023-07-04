@@ -1,10 +1,20 @@
 .edit-form__error {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: normal;
-    color: #FF0000;
-    display: block;
-    margin: 5px 36px 0;
-    box-sizing: border-box;
-    height: 12px;
+  min-height: 30px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: normal;
+  color: #ff0000;
+  display: block;
+  margin-bottom: 13px;
+  box-sizing: border-box;
+  white-space: break-spaces;
+  width: 358px;
+}
+
+@media screen and (max-width: 644px) {
+  .edit-form__error {
+    margin-bottom: 0px;
+    min-height: 42px;
+    width: 238px;
   }
+}

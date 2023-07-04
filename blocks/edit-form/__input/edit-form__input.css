@@ -6,12 +6,21 @@
   letter-spacing: 0em;
   text-align: left;
   padding: 0;
-  padding-bottom: 10px;
   border: none;
   outline-style: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 5px;
+  min-height: 30px;
+  width: 358px;
 }
 
 .edit-form__input:placeholder-shown {
   text-align: center;
+}
+
+@media screen and (max-width: 656px) {
+  .edit-form__input {
+    min-height: 32px;
+    width: 238px;
+  }
 }

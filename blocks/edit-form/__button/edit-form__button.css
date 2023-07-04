@@ -6,17 +6,18 @@
   font-size: 18px;
   line-height: 21.78px;
   text-align: center;
-  margin: 47px 36px 37px;
-  padding: 15px 0;
+  margin: 0;
+  padding: 0;
   border: none;
   border-radius: 2px;
   cursor: pointer;
+  min-height: 50px;
 }
 
 @media screen and (max-width: 656px) {
   .edit-form__button {
-    max-width: 238px;
-    margin: 45px 22px 25px;
+    width: 238px;
+    min-height: 47px;
     font-size: 14px;
     line-height: 16.94px;
   }
