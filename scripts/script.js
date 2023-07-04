@@ -129,6 +129,7 @@ function resetFormNewCard() {
   const buttonFormAddNewCard = document.querySelector(
     ".edit-form__button_type_card-create"
   );
+  buttonFormAddNewCard.classList.add("edit-form__button_type_invalid");
   buttonFormAddNewCard.setAttribute("disabled", "");
 }
 
@@ -147,7 +148,6 @@ function handleSubmitAdd(e) {
   };
   renderCard(newCard, sectionElements, "prepend");
   formAddNewCard.reset();
-
   closePopup(popupNewCard);
 }
 
