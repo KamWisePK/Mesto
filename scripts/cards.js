@@ -1,26 +1,41 @@
-const initialCards = [
-    {
-      name: 'Какое-',
-      link: 'https://bipbap.ru/wp-content/uploads/2021/06/Aosp8.jpg'
-    },
-    {
-      name: 'нибудь',
-      link: 'https://lifeo.ru/wp-content/uploads/gifki-kosmos-6.gif'
-    },
-    {
-      name: 'название',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'для',
-      link: 'https://usagif.com/wp-content/uploads/gif/outerspace-39.gif.webp'
-    },
-    {
-      name: 'каждой',
-      link: 'https://bestanimations.com/media/galaxy/1593105101hand-holding-galaxy-gif.gif'
-    },
-    {
-      name: 'гифки',
-      link: 'https://usagif.com/wp-content/uploads/gif/outerspace-26.gif.webp'
+  export class Card {
+    constructor(data, templateSelector, handleCardClick){
+      this._alt = data.name;
+      this._src = data.link;
+      this._templateSelector = templateSelector;
+      this._handleCardClick = handleCardClick;
     }
-  ]; 
+    _getTemplate() {
+     const cardElement = document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
+     return cardElement;
+    }   
+    generateCard() {
+      this._element = this._getTemplate();
+      this._buttonLikeElement = this._element.querySelector(".element__like-button");
+      this._buttonDelElement = this._element.querySelector(".element__del");
+      this._imgElement = this._element.querySelector(".element__image");
+      this._element.querySelector(".element__title").textContent = this._alt;
+      this._imgElement.alt = this._alt;
+      this._imgElement.src = this._src;
+      this._setEventListeners();
+      return this._element;
+    } 
+
+    _setEventListeners() {
+      this._buttonDelElement.addEventListener("click",  () => {
+        this._element.remove();
+      });
+
+      this._buttonLikeElement.addEventListener("click", () => {
+        this._buttonLikeElement.classList.toggle("element__like-button_active");
+      });
+
+      this._imgElement.addEventListener('click', () =>{
+      this._handleCardClick(this._alt, this.src);
+      });
+    }
+  }
+
+ 
+
+  

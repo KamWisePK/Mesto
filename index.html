@@ -55,7 +55,7 @@
             aria-label="Закрыть без сохранения"
             title="Закрыть"
           ></button>
-          <form class="edit-form" name="userEditForm" novalidate>
+          <form class="edit-form" name="userEditForm" id="userEditForm" novalidate>
             <input
               name="userName"
               class="edit-form__input edit-form__input_type_name"
@@ -93,7 +93,7 @@
             aria-label="Закрыть без сохранения"
             title="Закрыть"
           ></button>
-          <form class="edit-form" name="editForm" id="editForm" novalidate>
+          <form class="edit-form" name="editForm" id="cardEditForm" novalidate>
             <label class="edit-form__label">
               <input
                 name="cardName"
@@ -163,8 +163,7 @@
         </div>
       </article>
     </template>
-    <script async src="./scripts/cards.js"></script>
-    <script async src="./scripts/validation.js"></script>
-    <script async src="./scripts/script.js"></script>
+    
+    <script async src="./scripts/script.js" type="module"></script>
   </body>
 </html>

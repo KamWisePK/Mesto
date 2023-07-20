@@ -1,3 +1,42 @@
+import {Card} from './cards.js';
+import {Validation} from './validation.js';
+const initialCards = [
+  {
+    name: 'Какое-',
+    link: 'https://bipbap.ru/wp-content/uploads/2021/06/Aosp8.jpg'
+  },
+  {
+    name: 'нибудь',
+    link: 'https://lifeo.ru/wp-content/uploads/gifki-kosmos-6.gif'
+  },
+  {
+    name: 'название',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'для',
+    link: 'https://usagif.com/wp-content/uploads/gif/outerspace-39.gif.webp'
+  },
+  {
+    name: 'каждой',
+    link: 'https://bestanimations.com/media/galaxy/1593105101hand-holding-galaxy-gif.gif'
+  },
+  {
+    name: 'гифки',
+    link: 'https://usagif.com/wp-content/uploads/gif/outerspace-26.gif.webp'
+  }
+]; 
+
+const config = {
+  formSelector: ".edit-form",
+  inputSelector: ".edit-form__input",
+  submitButtonSelector: ".edit-form__button",
+  inactiveButtonClass: "edit-form__button_type_invalid",
+  inputErrorClass: "edit-form__input_type_invalid",
+};
+
+
+
 const popupProfile = document.querySelector(".popup_type_profile");
 const formEditUserInformation = popupProfile.querySelector(".edit-form");
 const buttonEditProfile = document.querySelector(".profile__edit-btn");
@@ -32,6 +71,13 @@ const spanFormEditUserInformation =
 const popupFullImage = document.querySelector(".popup_type_img");
 const photoPopupFullImage = document.querySelector(".popup__img");
 const figCaptionPopupFullImage = document.querySelector(".popup__figcaption");
+const userEditForm = popupProfile.querySelector("#userEditForm");
+const cardEditForm = popupNewCard.querySelector("#cardEditForm");
+const cardValidation = new Validation(cardEditForm,config);
+const userValidation = new Validation(userEditForm,config);
+
+cardValidation.enableValidation();
+userValidation.enableValidation();
 
 function closePopupEsc(evt) {
   if (evt.key === "Escape") {
@@ -78,81 +124,53 @@ function saveUserInformation(evt) {
   closePopup(popupProfile);
 }
 
-function toggleClass(event) {
-  event.target.classList.toggle("element__like-button_active");
+function handleCardClick(alt, src) {
+  openPopup(popupFullImage);
+  photoPopupFullImage.src = src;
+  photoPopupFullImage.alt = alt;
+  figCaptionPopupFullImage.textContent = alt;
 }
 
-function createElement(cardData) {
-  const elementItem = templateElement.cloneNode(true);
-  const titleElement = elementItem.querySelector(".element__title");
-  const imgElement = elementItem.querySelector(".element__image");
-  const buttonDelElement = elementItem.querySelector(".element__del");
-  const buttonLikeElement = elementItem.querySelector(".element__like-button");
-  buttonLikeElement.addEventListener("click", toggleClass);
-  imgElement.alt = cardData.name;
-  imgElement.src = cardData.link;
-  titleElement.textContent = cardData.name;
-  buttonDelElement.addEventListener("click", function () {
-    elementItem.remove();
-  });
-  imgElement.addEventListener("click", function () {
-    openPopup(popupFullImage);
-    photoPopupFullImage.src = imgElement.src;
-    photoPopupFullImage.alt = imgElement.alt;
-    figCaptionPopupFullImage.textContent = titleElement.textContent;
-  });
-  return elementItem;
-}
-
-function renderCard(data, container, position = "append") {
-  switch (position) {
-    case "append":
-      container.append(createElement(data));
-      break;
-    case "prepend":
-      container.prepend(createElement(data));
-      break;
-    default:
-      break;
-  }
-}
 // Не понял как по вашему совету можно запустить в index.js функцию сброса формы написанную в validation.js.
 // или она должна запускаться в validation.js?
-function resetFormNewCard() {
-  formAddNewCard.reset();
-  spanFormAddNewCardList.forEach(function (span) {
-    span.textContent = "";
-  });
-  inputFormAddNewCardList.forEach(function (input) {
-    input.classList.remove("edit-form__input_type_invalid");
-  });
-  const buttonFormAddNewCard = document.querySelector(
-    ".edit-form__button_type_card-create"
-  );
-  buttonFormAddNewCard.classList.add("edit-form__button_type_invalid");
-  buttonFormAddNewCard.setAttribute("disabled", "");
-}
+// function resetFormNewCard() {
+//   formAddNewCard.reset();
+//   spanFormAddNewCardList.forEach(function (span) {
+//     span.textContent = "";
+//   });
+//   inputFormAddNewCardList.forEach(function (input) {
+//     input.classList.remove("edit-form__input_type_invalid");
+//   });
+//   const buttonFormAddNewCard = document.querySelector(
+//     ".edit-form__button_type_card-create"
+//   );
+//   buttonFormAddNewCard.classList.add("edit-form__button_type_invalid");
+//   buttonFormAddNewCard.setAttribute("disabled", "");
+// }
 
 function openPopupNewCard() {
-  resetFormNewCard();
+  cardEditForm.reset();
+  cardValidation.resetValid();
   openPopup(popupNewCard);
 }
 
+function createCard(data) {
+  const newCard = new Card(data, '#card-template', handleCardClick);
+  const cardElement = newCard.generateCard();
+  return cardElement;
+  }
+
 function handleSubmitAdd(e) {
   e.preventDefault();
-  const cardName = inputEditFormCardName.value;
-  const cardUrl = inputEditFormCardUrl.value;
-  const newCard = {
-    name: cardName,
-    link: cardUrl,
-  };
-  renderCard(newCard, sectionElements, "prepend");
+  const cardElement = createCard({name: inputEditFormCardName.value, link: inputEditFormCardUrl.value});
+  sectionElements.prepend(cardElement);
   formAddNewCard.reset();
   closePopup(popupNewCard);
 }
 
 initialCards.forEach(function (item) {
-  renderCard(item, sectionElements, "append");
+const cardElement = createCard(item);
+sectionElements.append(cardElement);
 });
 
 buttonClosePopupList.forEach((item) => {
@@ -160,6 +178,9 @@ buttonClosePopupList.forEach((item) => {
     closePopup(item.closest(".popup"));
   });
 });
+
+
+
 
 formEditUserInformation.addEventListener("submit", saveUserInformation);
 buttonEditProfile.addEventListener("click", editUserInformation);
