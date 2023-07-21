@@ -5,10 +5,14 @@
       this._templateSelector = templateSelector;
       this._handleCardClick = handleCardClick;
     }
+
+    //создание каркаса карточки
     _getTemplate() {
      const cardElement = document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
      return cardElement;
-    }   
+    } 
+
+    //наполнение каркаса картчоки
     generateCard() {
       this._element = this._getTemplate();
       this._buttonLikeElement = this._element.querySelector(".element__like-button");
@@ -21,17 +25,20 @@
       return this._element;
     } 
 
+    //установка слушателей для всего функционала карточки
     _setEventListeners() {
+      // слушатель события кнопки удаления и функция удаления карточки
       this._buttonDelElement.addEventListener("click",  () => {
         this._element.remove();
       });
-
+     // слушатель события кнопки лайка и функция лайка
       this._buttonLikeElement.addEventListener("click", () => {
         this._buttonLikeElement.classList.toggle("element__like-button_active");
       });
 
+      //слушатель события открытия картинки карточки и вызов функции открытия (сама функция в скрипте)
       this._imgElement.addEventListener('click', () =>{
-      this._handleCardClick(this._alt, this.src);
+      this._handleCardClick(this._alt, this._src);
       });
     }
   }
