@@ -1,0 +1,11 @@
+{
+  "name": "yandex_praktikum",
+  "version": "0.0.1",
+  "description": "Интерактивный лендинг, с карточками фотографий.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  } ,
+  "author": "Sergey Mudretskiy",
+  "license": "ISC"
+}

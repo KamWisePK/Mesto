@@ -25,4 +25,10 @@ export const initialCards = [
     }
   ]; 
 
-  
+  export const validationClassConfig = {
+    formSelector: ".edit-form",
+    inputSelector: ".edit-form__input",
+    submitButtonSelector: ".edit-form__button",
+    inactiveButtonClass: "edit-form__button_type_invalid",
+    inputErrorClass: "edit-form__input_type_invalid",
+  };
