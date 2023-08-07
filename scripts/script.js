@@ -63,10 +63,12 @@ const dataInfo = new UserInfo(
   }
 );
 
-const popupEditUserInformation = new PopupWithForm(popupProfile, (info) => dataInfo.setUserInfo(info));
+const popupEditUserInformation = new PopupWithForm(popupProfile, (info) =>
+ dataInfo.setUserInfo(info));
 
 const popupCard = new PopupWithForm(popupNewCard, (info) => {
   section.addItem(createCard(info));
+  console.log(info);
 });
 
 const popupImage = new PopupWithImage(popupFullImage);
@@ -77,8 +79,9 @@ function createCard(data) {
   return cardElement;
 }
 
-function handleCardClick(evt) {
-  popupImage.open(evt.target);
+function handleCardClick(alt, src) {
+  popupImage.open(alt, src);
+ 
 }
 
 cardValidation.enableValidation();

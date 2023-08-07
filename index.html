@@ -96,7 +96,7 @@
           <form class="edit-form" name="editForm" id="cardEditForm" novalidate>
             <label class="edit-form__label">
               <input
-                name="cardName"
+                name="name"
                 class="edit-form__input edit-form__input_type_card-name"
                 minlength="2"
                 maxlength="30"
@@ -104,18 +104,18 @@
                 placeholder="Укажите название"
                 required
               />
-              <span id="cardName-error" class="edit-form__error"></span>
+              <span id="name-error" class="edit-form__error"></span>
             </label>
             <label class="edit-form__label">
               <input
                 type="url"
-                name="cardUrl"
+                name="link"
                 class="edit-form__input edit-form__input_type_card-url"
                 minlength="4"
                 placeholder="Ссылка на картинку"
                 required
               />
-              <span id="cardUrl-error" class="edit-form__error"></span>
+              <span id="link-error" class="edit-form__error"></span>
             </label>
             <button
               class="edit-form__button edit-form__button_type_card-create opacity"
@@ -128,7 +128,7 @@
       </section>
       <section class="popup popup_type_img">
         <figure class="popup__figure">
-          <img class="popup__img" src ="URL" alt="">
+          <img class="popup__img">
           <figcaption class="popup__figcaption"></figcaption>
           <button
             class="popup__close-btn opacity"
