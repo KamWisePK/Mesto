@@ -1,11 +1,11 @@
-import { Card } from "./scripts/card.js";
-import { FormValidator } from "./scripts/FormValidator.js";
-import { Section } from "./scripts/section.js";
-import { PopupWithForm } from "./scripts/PopupWithForm.js";
-import { PopupWithImage } from "./scripts/PopupWithImage.js";
-import { UserInfo } from "./scripts/UserInfo.js";
-import { initialCards } from "./scripts/constants.js";
-import { validationClassConfig } from "./scripts/constants.js";
+import { Card } from "../components/Card.js";
+import { FormValidator } from "../components/FormValidator.js";
+import { Section } from "../components/Section.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { UserInfo } from "../components/UserInfo.js";
+import { initialCards } from "../utils/constants.js";
+import { validationClassConfig } from "../utils/constants.js";
 
 import {
   popupProfile,
@@ -20,9 +20,9 @@ import {
   popupFullImage,
   userEditForm,
   cardEditForm,
-} from "./scripts/constants.js";
+} from "../utils/constants.js";
 
-import "./pages/index.css";
+import "../pages/index.css";
 
 //создание валидации для каждой формы
 const cardValidation = new FormValidator(cardEditForm, validationClassConfig);

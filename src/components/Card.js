@@ -8,9 +8,11 @@
 
     //создание каркаса карточки
     _getTemplate() {
-     const cardElement = document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
-     return cardElement;
-    } 
+      return document
+          .querySelector(this._templateSelector)
+          .content.querySelector('.element')
+          .cloneNode(true);
+  }  
 
     //наполнение каркаса картчоки
     generateCard() {
