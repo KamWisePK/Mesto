@@ -7,18 +7,18 @@
     <meta name="description" content="Проектная работа Место" />
     <meta name="keywords" content="HTML,CSS,JavaScript" />
     <meta name="author" content="Sergey Mudretskiy" />
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <link rel="stylesheet" href="./src/pages/index.css" /> -->
     <title>Место: 8 проектная Yandex:Practicum</title>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="./images/logo.svg" alt="Логотип место" />
+        <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип место" />
       </header>
       <main class="content">
         <section class="profile">
           <img
-            src="./images/Kusto-profile.jpg"
+            src="<%=require('./images/Kusto-profile.jpg')%>"
             alt="Фото профиля"
             class="profile__avatar"
           />
@@ -44,7 +44,7 @@
         <section class="elements"></section>
       </main>
       <footer class="footer">
-        <p class="footer__copyright" lang="en">© 2020 Mesto Russia</p>
+        <p class="footer__copyright" lang="en">© 2023 Mesto Russia</p>
       </footer>
       <section class="popup popup_type_profile">
         <div class="popup__container">
@@ -164,6 +164,6 @@
       </article>
     </template>
     
-    <script async src="./scripts/script.js" type="module"></script>
+    <!-- <script async src="./src/pages/index.js" type="module"></script> -->
   </body>
 </html>
