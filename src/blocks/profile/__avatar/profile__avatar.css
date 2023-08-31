@@ -4,8 +4,10 @@
   height: 120px;
   margin-right: 30px;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
+  overflow: hidden;
+
 }
 
 @media screen and (max-width: 656px) {

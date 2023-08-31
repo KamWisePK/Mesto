@@ -13,18 +13,30 @@
   <body>
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип место" />
+        <img
+          class="header__logo"
+          src="<%=require('./images/logo.svg')%>"
+          alt="Логотип место"
+        />
       </header>
       <main class="content">
         <section class="profile">
-          <img
-            src="<%=require('./images/Kusto-profile.jpg')%>"
-            alt="Фото профиля"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <img
+              src="<%=require('./images/Kusto-profile.jpg')%>"
+              alt="Фото профиля"
+              class="profile__avatar"
+            />
+            <button
+              class="profile__avatar-btn"
+              type="button"
+              aria-label="Поменять аватар"
+              title="Поменять аватар"
+            ></button>
+          </div>
           <div class="profile__info">
             <div class="profile__container">
-              <h1 class="profile__info-name">Жак-Ив Кусто</h1>
+              <h1 class="profile__info-name">121111</h1>
               <button
                 class="profile__edit-btn opacity"
                 type="button"
@@ -55,7 +67,12 @@
             aria-label="Закрыть без сохранения"
             title="Закрыть"
           ></button>
-          <form class="edit-form" name="userEditForm" id="userEditForm" novalidate>
+          <form
+            class="edit-form"
+            name="userEditForm"
+            id="userEditForm"
+            novalidate
+          >
             <input
               name="userName"
               class="edit-form__input edit-form__input_type_name"
@@ -128,7 +145,7 @@
       </section>
       <section class="popup popup_type_img">
         <figure class="popup__figure">
-          <img class="popup__img">
+          <img class="popup__img" />
           <figcaption class="popup__figcaption"></figcaption>
           <button
             class="popup__close-btn opacity"
@@ -139,6 +156,55 @@
         </figure>
       </section>
     </div>
+    <section class="popup popup_type_avatar-change">
+      <div class="popup__container">
+        <h2 class="popup__title">Смена аватара</h2>
+        <button
+          class="popup__close-btn opacity"
+          type="button"
+          aria-label="Закрыть без сохранения"
+          title="Закрыть"
+        ></button>
+        <form class="edit-form" name="editForm" id="avatarEditForm" novalidate>
+          <label class="edit-form__label">
+            <input
+              type="url"
+              name="avatarLink"
+              class="edit-form__input edit-form__input_type_avatar-url"
+              minlength="4"
+              placeholder="Ссылка на аватар"
+              required
+            />
+            <span id="avatarLink-error" class="edit-form__error"></span>
+          </label>
+          <button
+            class="edit-form__button edit-form__button_type_avatar-update opacity"
+            type="submit"
+          >
+            Cменить
+          </button>
+        </form>
+      </div>
+    </section>
+    <section class="popup popup_type_delete-card">
+      <div class="popup__container">
+        <h2 class="popup__title">Удалить карточку?</h2>
+        <button
+          class="popup__close-btn opacity"
+          type="button"
+          aria-label="Закрыть без сохранения"
+          title="Закрыть"
+        ></button>
+        <form class="edit-form" name="editForm" id="cardDelEditForm" novalidate>
+          <button
+            class="edit-form__button edit-form__button_type_card-delete opacity"
+            type="submit"
+          >
+            Удалить
+          </button>
+        </form>
+      </div>
+    </section>
     <template class="card-template" id="card-template">
       <article class="element">
         <button
@@ -154,16 +220,19 @@
         />
         <div class="element__container">
           <h2 class="element__title"></h2>
-          <button
-            class="element__like-button"
-            type="button"
-            aria-label="Кнопка лайка"
-            title="Нравится"
-          ></button>
+          <div class="element__like-container">
+            <button
+              class="element__like-button"
+              type="button"
+              aria-label="Кнопка лайка"
+              title="Нравится"
+            ></button>
+            <span class="element__like-count">0</span>
+          </div>
         </div>
       </article>
     </template>
-    
+
     <!-- <script async src="./src/pages/index.js" type="module"></script> -->
   </body>
 </html>
