@@ -127,13 +127,15 @@ function handleCardClick(alt, src) {
 
 function handleCardDelete(card) {
   popupCardDel.open();
+  toggleButtonState(false, popupCardDelete, "Удалить");
   popupCardDel.cardDelConfirm(() => {
     api
       .deleteCard(card.getId())
       .then(() => {
         card.deleteCard();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => toggleButtonState(true, popupCardDelete, "Удаляю"));
   });
 }
 
