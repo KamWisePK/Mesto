@@ -50,7 +50,6 @@ export class Card {
 
     return this._element;
   }
-
   
   isLiked() {
     return this._data.likes.some((item) => {
@@ -71,6 +70,10 @@ export class Card {
   setLikes(data) {
     this._data.likes = data.likes;
     this._updateLike();
+  }
+
+  deleteCard() {
+    this._element.remove();
   }
 
   //установка слушателей для всего функционала карточки
